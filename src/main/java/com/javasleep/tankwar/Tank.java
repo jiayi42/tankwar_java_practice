@@ -10,6 +10,8 @@ public class Tank {
 
     private int y;
 
+    private boolean enemy;
+
     public int getX() {
         return x;
     }
@@ -29,9 +31,14 @@ public class Tank {
     private Direction direction;
 
     public Tank(int x, int y, Direction direction){
-        this.x=x;
-        this.y=y;
-        this.direction =direction;
+        this(x,y,false, direction);
+    }
+
+    public Tank(int x, int y, boolean enemy, Direction direction) {
+        this.x = x;
+        this.y = y;
+        this.enemy = enemy;
+        this.direction = direction;
     }
 
     void move(){
@@ -51,23 +58,24 @@ public class Tank {
     }
 
     Image getImage(){
+        String prefix = enemy ? "e" : "";
         switch (direction){
             case UP:
-                return new ImageIcon("assets/images/tankU.gif").getImage();
+                return Tools.getImage( prefix+"tankU.gif");
             case UPLEFT:
-                return new ImageIcon("assets/images/tankLU.gif").getImage();
+                return Tools.getImage( prefix+"tankLU.gif");
             case UPRIGHT:
-                return new ImageIcon("assets/images/tankRU.gif").getImage();
+                return Tools.getImage( prefix+"tankRU.gif");
             case DOWNLEFT:
-                return new ImageIcon("assets/images/tankLD.gif").getImage();
+                return Tools.getImage( prefix+"tankLD.gif");
             case DOWNRIGHT:
-                return new ImageIcon("assets/images/tankRD.gif").getImage();
+                return Tools.getImage( prefix+"tankRD.gif");
             case DOWN:
-                return new ImageIcon("assets/images/tankD.gif").getImage();
+                return Tools.getImage( prefix+"tankD.gif");
             case LEFT:
-                return new ImageIcon("assets/images/tankL.gif").getImage();
+                return Tools.getImage( prefix+"tankL.gif");
             case RIGHT:
-                return new ImageIcon("assets/images/tankR.gif").getImage();
+                return Tools.getImage( prefix+"tankR.gif");
         }
         return null;
     }
