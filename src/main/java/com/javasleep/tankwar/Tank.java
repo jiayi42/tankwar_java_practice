@@ -109,10 +109,16 @@ class Tank {
             case KeyEvent.VK_DOWN: down=true;break;
             case KeyEvent.VK_LEFT: left=true;break;
             case KeyEvent.VK_RIGHT: right=true;break;
+            case KeyEvent.VK_CONTROL: fire(); break;
         }
-
+        this.determineDirection();
     }
 
+    private void fire(){
+        Missle missle =new Missle(x + getImage().getHeight(null)/2,
+                y + getImage().getHeight(null)/2, enemy, direction);
+        GameClient.getInstance().getMissles().add(missle);
+    }
     private boolean stopped;
 
     private void determineDirection(){
