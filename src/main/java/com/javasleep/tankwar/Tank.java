@@ -1,13 +1,9 @@
 package com.javasleep.tankwar;
 
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
 //import javax.print.attribute.standard.Media;
-import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
-import java.io.File;
-import java.util.Random;
+        import java.util.Random;
 
 class Tank {
 
@@ -122,7 +118,7 @@ class Tank {
                 y + getImage().getHeight(null)/2-4, enemy, direction);
         GameClient.getInstance().getMissles().add(missle);
 
-        playAudio("shoot.wav");
+        Tools.playAudio("shoot.wav");
     }
 
     private void superfire(){
@@ -133,13 +129,7 @@ class Tank {
         }
 
         String audioFile = new Random().nextBoolean() ? "supershoot.aiff" : "supershoot.wav";
-        playAudio(audioFile);
-    }
-
-    private void playAudio(String fileName) {
-        Media sound = new Media(new File("assets/audios/"+fileName).toURI().toString());
-        MediaPlayer mediaPlayer = new MediaPlayer(sound);
-        mediaPlayer.play();
+        Tools.playAudio(audioFile);
     }
 
     private boolean stopped;
