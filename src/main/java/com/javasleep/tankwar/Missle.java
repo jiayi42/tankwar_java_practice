@@ -23,20 +23,10 @@ class Missle {
     }
 
     void move(){
-
-        switch (direction){
-            case UP: y-=15;break;
-
-            case LEFT_UP: x-=15;y-=15;break;
-            case RIGHT_UP: x+=15;y-=15;break;
-            case LEFT_DOWN: x-=15;y+=15;break;
-            case RIGHT_DOWN: x+=15;y+=15;break;
-
-            case DOWN: y+=15;break;
-            case LEFT: x-=15;break;
-            case RIGHT: x+=15;break;
-        }
+        x+= direction.xFactor*15;
+        y+= direction.yFactor*15;
     }
+
     void draw(Graphics g) {
         move();
         if(x<0|| x>800|| y<0|| y>600){
