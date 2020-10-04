@@ -19,35 +19,18 @@ class Missle {
     }
 
     Image getImage(){
-        switch (direction){
-            case UP:
-                return Tools.getImage( "missleU.gif");
-            case UPLEFT:
-                return Tools.getImage( "missileLU.gif");
-            case UPRIGHT:
-                return Tools.getImage( "missileRU.gif");
-            case DOWNLEFT:
-                return Tools.getImage( "missileLD.gif");
-            case DOWNRIGHT:
-                return Tools.getImage( "missileRD.gif");
-            case DOWN:
-                return Tools.getImage( "missileD.gif");
-            case LEFT:
-                return Tools.getImage( "missileL.gif");
-            case RIGHT:
-                return Tools.getImage( "missileR.gif");
-        }
-        return null;
+        return direction.getImage("missile");
     }
+
     void move(){
 
         switch (direction){
             case UP: y-=15;break;
 
-            case UPLEFT: x-=15;y-=15;break;
-            case UPRIGHT: x+=15;y-=15;break;
-            case DOWNLEFT: x-=15;y+=15;break;
-            case DOWNRIGHT: x+=15;y+=15;break;
+            case LEFT_UP: x-=15;y-=15;break;
+            case RIGHT_UP: x+=15;y-=15;break;
+            case LEFT_DOWN: x-=15;y+=15;break;
+            case RIGHT_DOWN: x+=15;y+=15;break;
 
             case DOWN: y+=15;break;
             case LEFT: x-=15;break;
