@@ -1,2 +1,3 @@
 # tankwar_java_practice
-a pratice for java 
+The pratice by a common project for java. 
+Pratice JUnit, swing, Refactoring in Java. 
